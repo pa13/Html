@@ -39,27 +39,50 @@
         <input type="text" name="newinput" />
         <input type="button" value="redirect" onclick="redirect();" />
         <output name="result" for="textName"></output>
+
+        <!-- <input type="button" value="Click Me" onclick="myFunc1();" /> -->
+        <!-- <img src="myimage.gif" onerror="alert('An error occurred loading the image.')" /> -->
     </form>
 
     <script type="text/javascript">
+
+        window.onerror = function (msg, url, line) {
+            alert("Message : " + msg);
+            alert("url : " + url);
+            alert("Line number : " + line);
+        }
+
         function showResult() {
             x = document.forms["myform"]["newinput"].value;
             document.forms["myform"]["result"].value = x;
         }
 
         function teszt() {
-            // alert("Fúrógép");
-            // alert(navigator.appName);
-            // alert(confirm("Do you want to continue ?"));
-            // alert(prompt("Enter your name : ", "your name here"));
+            try {
+                // alert("Fúrógép");
+                // alert(navigator.appName);
+                // alert(confirm("Do you want to continue ?"));
+                // alert(prompt("Enter your name : ", "your name here"));
 
-            // var paciens = new Object();
-            // paciens.azo = 1;
-            // paciens.név = "Papp Attila";
-            // paciens.taj = "036345678";
-            var paciens = new újPaciens(1, "Papp Attila", "036345678");
-            paciens.szüldátum("2017.01.01");
-            alert(paciens.azo + " - " + paciens.név + " - " + paciens.taj + " - " + paciens.szüldátum);
+                // var paciens = new Object();
+                // paciens.azo = 1;
+                // paciens.név = "Papp Attila";
+                // paciens.taj = "036345678";
+                var paciens = new újPaciens(1, "Papp Attila", "036345678");
+                // paciens.szüldátum("2017.01.01");
+                // paciens.szüldátum = new Date(2017, 0, 10);
+                // alert(paciens.azo + " - " + paciens.név + " - " + paciens.taj + " - " + paciens.szüldátum);
+
+                // var i = paciens.név.lastIndexOf("t");
+                // alert(i);
+
+                // alert(window.)
+
+                // throw ("Divide by zero error.");
+            }
+            catch (e) {
+                alert("Error: " + e);
+            }
         }
 
         function újPaciens(azo, név, taj) {
