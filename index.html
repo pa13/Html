@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Text Input Control 1</title>
+</head>
+
+<body>
+    <form action="" method="get" name="myform" onsubmit="return validate()">
+        <br> Név:
+        <input type="text" id="textName" name="name" placeholder="Név..." required />
+        <br> Jelszó:
+        <input type="password" id="passJelszó" name="password" placeholder="Jelszó..." />
+        <br> Megjegyzés :
+        <br>
+        <textarea rows="5" cols="50" name="description" placeholder="Megjegyzés..."></textarea>
+        <br>
+        <input type="checkbox" name="maths" checked="true" /> Maths
+        <input type="checkbox" name="physics" checked="true" /> Physics
+        <br>
+        <input type="radio" name="subject" checked="true"> Maths
+        <input type="radio" name="subject"> Physics
+        <br>
+        <select name="dropdown">
+            <option value="Maths" selected>Maths</option>
+            <option value="Physics">Physics</option>
+        </select>
+        <br> Dátum:
+        <input type="date" name="date" />
+        <br> Szám:
+        <input type="number" min="0" max="10" step "1" value="5" name="number" />
+        <br> Email :
+        <input type="email" name="email" />
+        <br>
+        <input type="submit" name="submit" value="Submit" />
+        <input type="reset" name="reset" value="Reset" />
+        <input type="button" name="ok" value="OK" />
+        <br>Enter a value :
+        <input type="text" name="newinput" />
+        <input type="button" value="redirect" onclick="redirect();" />
+        <output name="result" for="textName"></output>
+    </form>
+
+    <script type="text/javascript">
+        function showResult() {
+            x = document.forms["myform"]["newinput"].value;
+            document.forms["myform"]["result"].value = x;
+        }
+
+        function teszt() {
+            // alert("Fúrógép");
+            // alert(navigator.appName);
+            // alert(confirm("Do you want to continue ?"));
+            // alert(prompt("Enter your name : ", "your name here"));
+
+            // var paciens = new Object();
+            // paciens.azo = 1;
+            // paciens.név = "Papp Attila";
+            // paciens.taj = "036345678";
+            var paciens = new újPaciens(1, "Papp Attila", "036345678");
+            paciens.szüldátum("2017.01.01");
+            alert(paciens.azo + " - " + paciens.név + " - " + paciens.taj + " - " + paciens.szüldátum);
+        }
+
+        function újPaciens(azo, név, taj) {
+            this.azo = azo;
+            this.név = név;
+            this.taj = taj;
+            this.szüldátum = beállítSzüldátum;
+        }
+        function beállítSzüldátum(dátum) {
+            this.szüldátum = dátum;
+        }
+
+        function validate() {
+            x = document.myform.passJelszó.value;
+            if (x == null || x == "") {
+                alert(document.myform.textName.value);
+                return false;
+            }
+            return true;
+        }
+
+        function redirect() {
+            window.location = "http://www.tutorialspoint.com";
+        }
+
+        teszt();
+
+    </script>
+</body>
+
+</html>

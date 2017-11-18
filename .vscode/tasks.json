@@ -1,0 +1,10 @@
+{
+    "version": "0.1.0",
+    "command": "IE",
+    "windows": {
+        "command": "C:\\Program Files\\Internet Explorer\\iexplore.exe"
+    },
+    "args": [
+        "${file}"
+    ]
+}
