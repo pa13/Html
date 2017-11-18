@@ -7,12 +7,46 @@
 <body>
     <h1>Hello</h1>
 
+    <div>
+        <div class="big" id="div1">
+            <p>This is first division of the DOM.</p>
+        </div>
+
+        <div class="medium" id="div2">
+            <p>This is second division of the DOM.</p>
+        </div>
+
+        <div class="small" id="div3">
+            <p>This is third division of the DOM</p>
+        </div>
+    </div>
+
+    <input type="button" id="gomb" value="GOMB" style="font-family: 'Segoe UI'" />
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
             // do stuff when DOM is ready
-            document.write("Hello, World!");
+
+            $("body").css("background-color", "darkslategrey"); // Element Name Selector
+
+            $("#div2").css("background-color", "green"); // Element ID Selector
+
+            $(".big").css("background-color", "red"); // Element Class Selector
+
+            $("*").css("font-size", "14"); // Universal Selector
+
+            $(".big, #div3").css("font-family", "'Segoe UI'"); // Multiple Elements Selector
+
+            $("#gomb").click(function (event) {
+                alert("gomb");
+            });
         });
+
+
+
+
     </script>
 
 </body>
