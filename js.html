@@ -68,10 +68,30 @@
                 // paciens.azo = 1;
                 // paciens.név = "Papp Attila";
                 // paciens.taj = "036345678";
-                var paciens = new újPaciens(1, "Papp Attila", "036345678");
+                // var paciens = new újPaciens(1, "Papp Attila", "036345678");
                 // paciens.szüldátum("2017.01.01");
                 // paciens.szüldátum = new Date(2017, 0, 10);
+                var paciens1 = {
+                    azo: 1,
+                    név: "Papp Attila",
+                    taj: "036345678",
+                    szüldátum: new Date(1979, 10, 14) // 1979.11.14
+                };
+                var paciens2 = {
+                    azo: 2,
+                    név: "Kovács Béla",
+                    taj: "012123234",
+                    szüldátum: new Date(2003, 4, 15) // 2017.01.10
+                };
                 // alert(paciens.azo + " - " + paciens.név + " - " + paciens.taj + " - " + paciens.szüldátum);
+
+                var lista = new Set();
+                lista.add(paciens1);
+                lista.add(paciens2);
+
+                lista.forEach(function (paciens) {
+                    alert(paciens.név);
+                });
 
                 // var i = paciens.név.lastIndexOf("t");
                 // alert(i);
