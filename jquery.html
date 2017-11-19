@@ -2,6 +2,12 @@
 
 <head>
     <title>The jQuery Example</title>
+
+    <style>
+        .selected {
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -19,10 +25,31 @@
         <div class="small" id="div3">
             <p>This is third division of the DOM</p>
         </div>
+
+        <em title="Bold and Brave">This is first paragraph.</em>
+        <p id="myid">This is second paragraph.</p>
+        <div id="divid"></div>
     </div>
 
-    <input type="button" id="gomb" value="GOMB" style="font-family: 'Segoe UI'" />
+    <input type="button" id="gomb" value="GOMB" />
 
+    <div>
+        <ul>
+            <li class="top">list item 1</li>
+            <li class="top">list item 2</li>
+            <li class="middle">list item 3</li>
+            <li class="middle">list item 4</li>
+            <li class="bottom">list item 5</li>
+            <li class="bottom">list item 6</li>
+        </ul>
+    </div>
+
+    <p>This is 1st paragraph and
+        <span>THIS IS RED</span>
+    </p>
+    <p>This is 2nd paragraph and
+        <span>THIS IS ALSO RED</span>
+    </p>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
@@ -39,9 +66,20 @@
 
             $(".big, #div3").css("font-family", "'Segoe UI'"); // Multiple Elements Selector
 
+            $("div > *").css("color", "white"); // Element Name children 
+
             $("#gomb").click(function (event) {
                 alert("gomb");
             });
+
+            var title = $("em").attr("title");
+            $("#divid").text(title);
+
+            $("li").filter(".middle").addClass("selected");
+
+            $("p").find("span").addClass("selected");
+
+            $("li").eq(2).css("color", "green");
         });
 
 
