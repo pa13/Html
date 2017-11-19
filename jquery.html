@@ -7,6 +7,13 @@
         .selected {
             color: red;
         }
+
+        .div {
+            margin: 10px;
+            padding: 12px;
+            border: 2px solid #666;
+            width: 60px;
+        }
     </style>
 </head>
 
@@ -51,11 +58,15 @@
         <span>THIS IS ALSO RED</span>
     </p>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            // do stuff when DOM is ready
+    <div class="div" style="background-color:blue;">ONE</div>
+    <div class="div" style="background-color:green;">TWO</div>
+    <div class="div" style="background-color:red;">THREE</div>
 
+    <!-- <span id="result"> </span> -->
+
+    <script "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script "text/javascript">
+        $(document).ready(function () {
             $("body").css("background-color", "darkslategrey"); // Element Name Selector
 
             $("#div2").css("background-color", "green"); // Element ID Selector
@@ -79,12 +90,36 @@
 
             $("p").find("span").addClass("selected");
 
-            $("li").eq(2).css("color", "green");
+            // $("li").eq(2).css("color", "green");
+            $("li").eq(2).css({ "color": "red", "background-color": "green" });
+
+            $("div:first").width(100);
+
+            // $("div").click(function () {
+            //     var content = $(this).html();
+            //     $("#result").text(content);
+            // });
+            // $("div").click(function () {
+            //     $(this).remove();
+            // });
+            // $("div").click(function () {
+            //     $(this).before('<div class="div"></div>');
+            // });
+
+            // $("div").bind("click", function (event) { // Minden szinten kiváltódik!
+            //     alert($(this).text());
+            // });
+            $("div").bind("click", function (event) {
+                alert(
+                    "Event type is " + event.type + "\r\n" +
+                    "pageX : " + event.pageX + "\r\n" +
+                    "pageY : " + event.pageY + "\r\n" +
+                    "Target : " + event.target.innerHTML);
+            });
+
+
+
         });
-
-
-
-
     </script>
 
 </body>
